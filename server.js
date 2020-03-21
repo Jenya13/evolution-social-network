@@ -5,11 +5,10 @@ const app = express();
 // Data Base connection
 connectDB();
 
-const PORT = process.env.PORT || 5000;
+// Init middleware
+app.use(express.json({ extended: false }));
 
-app.get("/", (req, res) => {
-  res.send("API running");
-});
+const PORT = process.env.PORT || 5000;
 
 // App routes setting
 app.use("/api/users", require("./routes/api/users"));
