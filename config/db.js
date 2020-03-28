@@ -1,16 +1,14 @@
-const mongoose = require("mongoose");
-const config = require("config");
-const db = config.get("mongoURI");
+const mongoose = require('mongoose');
 
 //  Connection to mongoDB
-const connectDB = async () => {
+const connectDB = async db => {
   try {
     await mongoose.connect(db, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true
     });
-    console.log("mongoDB connected...");
+    console.log('mongoDB connected...');
   } catch (e) {
     console.error(e.message);
 

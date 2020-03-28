@@ -1,20 +1,14 @@
-const express = require("express");
-const connectDB = require("./config/db");
-const app = express();
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
+const app = require('./app');
+
+dotenv.config({ path: './config.env' });
 
 // Data Base connection
-connectDB();
-
-// Init middleware
-app.use(express.json({ extended: false }));
+const db = process.env.DATABASE_LOCAL;
+connectDB(db);
 
 const PORT = process.env.PORT || 5000;
-
-// App routes setting
-app.use("/api/users", require("./routes/api/users"));
-app.use("/api/profile", require("./routes/api/profile"));
-app.use("/api/auth", require("./routes/api/auth"));
-app.use("/api/posts", require("./routes/api/posts"));
 
 // listens for connection on the given port
 app.listen(PORT, () => {
