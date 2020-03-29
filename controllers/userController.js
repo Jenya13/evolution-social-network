@@ -1,24 +1,11 @@
 const User = require('./../models/User');
+const catchAsync = require('./../utils/catchAsync');
 
-exports.registerUser = async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
-    let user = await User.findOne({ email });
+exports.registerUser = catchAsync(async (req, res, next) => {
+  const newUser = await User.create(req.body);
 
-    if (user) {
-      throw 'This user already exist';
-    }
-
-    const newUser = await User.create(req.body);
-
-    res.status(201).json({
-      status: 'success',
-      data: newUser
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      msg: err
-    });
-  }
-};
+  res.status(201).json({
+    status: 'success',
+    data: newUser
+  });
+});
