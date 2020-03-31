@@ -55,7 +55,7 @@ module.exports = (err, req, res, next) => {
       error = handleValidationErrorDB(error);
     }
 
-    sendDevError(error, res);
+    sendDevError(err, res);
   } else if (process.env.NODE_ENV === 'production') {
     let error = { ...err };
     if (error.name === 'CastError') error = handleCastErrorDB(error);
@@ -63,6 +63,6 @@ module.exports = (err, req, res, next) => {
     if (error.name === 'ValidationError') {
       error = handleValidationErrorDB(error);
     }
-    sendProdError(error, res);
+    sendProdError(err, res);
   }
 };

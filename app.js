@@ -3,10 +3,10 @@ const app = express();
 const morgan = require('morgan');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
-const userRoute = require('./routes/users');
-const profileRoute = require('./routes/profile');
-const authRoute = require('./routes/auth');
-const postsRoute = require('./routes/posts');
+const userRoute = require('./routes/usersRouter');
+const profileRoute = require('./routes/profileRouter');
+const authRoute = require('./routes/authRouter');
+const postsRoute = require('./routes/postsRouter');
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
