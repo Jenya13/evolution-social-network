@@ -49,3 +49,25 @@ exports.login = catchAsync(async (req, res, next) => {
     token
   });
 });
+
+exports.auth = catchAsync(async (req, res, next) => {
+  // 1. getting token if it exist
+  const token = req.header('x-auth-token');
+
+  if (!token) {
+    return next(new AppError('No token, authorization denied', 401));
+  }
+
+  // 2. validate the token - verification
+  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+
+  // 3. check if user still exist
+  const user = await User.findById(decoded.id);
+
+  if (!user) {
+    return next(new AppError('User no longer exist', 401));
+  }
+
+  req.user = user;
+  next();
+});
