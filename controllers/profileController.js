@@ -35,7 +35,7 @@ exports.myProfile = catchAsync(async (req, res, next) => {
 exports.createProfile = catchAsync(async (req, res, next) => {
   const profileFields = updateFields(req);
 
-  profile = await Profile.create(profileFields);
+  const profile = await Profile.create(profileFields);
 
   res.status(201).json({
     status: 'success',

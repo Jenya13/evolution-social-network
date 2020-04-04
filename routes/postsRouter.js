@@ -1,11 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const { addPost } = require('./../controllers/postController');
+const { auth } = require('./../controllers/authController');
 
-// @route   GET api/post
-// @desc    test route
-// @access  Public
-router.get('/', (req, res) => {
-  res.send('Posts route');
-});
+router.route('/').post(auth, addPost);
 
 module.exports = router;
