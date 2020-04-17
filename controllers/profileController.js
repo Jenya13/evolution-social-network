@@ -3,7 +3,7 @@ const User = require('./../models/User');
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 
-const updateFields = req => {
+const updateFields = (req) => {
   const { website, status, skills, youtube, facebook, instagram } = req.body;
 
   const profileFields = {};
@@ -11,7 +11,7 @@ const updateFields = req => {
   if (website) profileFields.website = website;
   if (status) profileFields.status = status;
   if (skills)
-    profileFields.skills = skills.split(',').map(skill => skill.trim());
+    profileFields.skills = skills.split(',').map((skill) => skill.trim());
 
   profileFields.social = {};
   if (youtube) profileFields.social.youtube = youtube;
@@ -40,8 +40,8 @@ exports.createProfile = catchAsync(async (req, res, next) => {
   res.status(201).json({
     status: 'success',
     data: {
-      profile
-    }
+      profile,
+    },
   });
 });
 
@@ -57,8 +57,8 @@ exports.updateProfile = catchAsync(async (req, res, next) => {
   res.status(201).json({
     status: 'success',
     data: {
-      profile
-    }
+      profile,
+    },
   });
 });
 
@@ -68,14 +68,14 @@ exports.getAllProfiles = catchAsync(async (req, res, next) => {
   res.status(201).json({
     status: 'success',
     data: {
-      profiles
-    }
+      profiles,
+    },
   });
 });
 
 exports.getProfileByUser = catchAsync(async (req, res, next) => {
   const profile = await Profile.findOne({
-    user: req.params.user_id
+    user: req.params.user_id,
   }).populate('user', ['name']);
 
   if (!profile) {
@@ -85,8 +85,8 @@ exports.getProfileByUser = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     data: {
-      profile
-    }
+      profile,
+    },
   });
 });
 
