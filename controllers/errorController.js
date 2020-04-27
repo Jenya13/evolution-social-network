@@ -5,7 +5,6 @@ const sendDevError = (err, res) => {
     status: err.status,
     error: err,
     message: err.message,
-    stack: err.stack,
   });
 };
 
@@ -15,6 +14,8 @@ const sendProdError = (err, res) => {
     res.status(err.statusCode).json({
       status: err.status,
       message: err.message,
+      // message: err.message,
+      // stack: err.stack,
     });
   } else {
     // Programming or other unknown error

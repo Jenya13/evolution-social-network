@@ -4,9 +4,9 @@ const jwt = require('jsonwebtoken');
 const catchAsync = require('./../utils/catchAsync');
 const util = require('util');
 
-const signToken = id => {
+const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.TOKEN_EXPIRATION
+    expiresIn: process.env.TOKEN_EXPIRATION,
   });
 };
 
@@ -14,7 +14,7 @@ exports.signUp = catchAsync(async (req, res, next) => {
   const newUser = await User.create({
     name: req.body.name,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
   });
 
   const token = signToken(newUser._id);
@@ -23,8 +23,8 @@ exports.signUp = catchAsync(async (req, res, next) => {
     status: 'success',
     token,
     data: {
-      user: newUser
-    }
+      user: newUser,
+    },
   });
 });
 
@@ -47,7 +47,7 @@ exports.login = catchAsync(async (req, res, next) => {
   const token = signToken(user._id);
   res.status(200).json({
     status: 'success',
-    token
+    token,
   });
 });
 
@@ -74,4 +74,9 @@ exports.auth = catchAsync(async (req, res, next) => {
 
   req.user = user;
   next();
+});
+
+exports.authUser = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.user.id).select('-password');
+  res.json(user);
 });

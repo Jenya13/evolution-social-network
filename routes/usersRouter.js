@@ -8,6 +8,4 @@ router.route('/login').post(login);
 
 router.route('/:id').get(getUser);
 
-// router.route('/').post(registerUser);
-
 module.exports = router;
