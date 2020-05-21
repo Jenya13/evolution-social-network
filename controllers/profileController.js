@@ -4,19 +4,29 @@ const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 
 const updateFields = (req) => {
-  const { website, status, skills, youtube, facebook, instagram } = req.body;
+  const {
+    website,
+    status,
+    skills,
+    youtube,
+    facebook,
+    instagram,
+    linkedin,
+  } = req.body;
 
   const profileFields = {};
+
   profileFields.user = req.user.id;
   if (website) profileFields.website = website;
-  if (status) profileFields.status = status;
-  if (skills)
-    profileFields.skills = skills.split(',').map((skill) => skill.trim());
 
+  if (status) profileFields.status = status;
+  if (skills) profileFields.skills = skills; //skills.split(',').map((skill) => skill.trim());
+  console.log(profileFields);
   profileFields.social = {};
   if (youtube) profileFields.social.youtube = youtube;
   if (facebook) profileFields.social.facebook = facebook;
   if (instagram) profileFields.social.instagram = instagram;
+  if (instagram) profileFields.social.linkedin = linkedin;
 
   return profileFields;
 };
@@ -30,6 +40,11 @@ exports.myProfile = catchAsync(async (req, res, next) => {
   if (!profile) {
     return next(new AppError('There is no profile for this user', 400));
   }
+
+  res.status(200).json({
+    status: 'success',
+    profile,
+  });
 });
 
 exports.createProfile = catchAsync(async (req, res, next) => {
@@ -46,7 +61,10 @@ exports.createProfile = catchAsync(async (req, res, next) => {
 });
 
 exports.updateProfile = catchAsync(async (req, res, next) => {
+  console.log('updating -> req.body');
+  console.log('befor fields setting');
   const profileFields = updateFields(req);
+  console.log('after fields setting');
 
   const profile = await Profile.findOneAndUpdate(
     { user: req.user.id },

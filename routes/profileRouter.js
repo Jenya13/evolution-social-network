@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const { auth } = require('./../controllers/authController');
 const {
   myProfile,
   createProfile,
   updateProfile,
   getAllProfiles,
   getProfileByUser,
-  deleteProfile
+  deleteProfile,
 } = require('../controllers/profileController');
-const { auth } = require('./../controllers/authController');
 
 router.route('/me').get(auth, myProfile);
 
