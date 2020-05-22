@@ -85,9 +85,7 @@ exports.getAllProfiles = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: 'success',
-    data: {
-      profiles,
-    },
+    profiles,
   });
 });
 
