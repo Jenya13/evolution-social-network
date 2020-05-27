@@ -26,7 +26,7 @@ const updateFields = (req) => {
   if (youtube) profileFields.social.youtube = youtube;
   if (facebook) profileFields.social.facebook = facebook;
   if (instagram) profileFields.social.instagram = instagram;
-  if (instagram) profileFields.social.linkedin = linkedin;
+  if (linkedin) profileFields.social.linkedin = linkedin;
 
   return profileFields;
 };
@@ -90,6 +90,7 @@ exports.getAllProfiles = catchAsync(async (req, res, next) => {
 });
 
 exports.getProfileByUser = catchAsync(async (req, res, next) => {
+  console.log('in controller');
   const profile = await Profile.findOne({
     user: req.params.user_id,
   }).populate('user', ['name']);
@@ -100,9 +101,7 @@ exports.getProfileByUser = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    data: {
-      profile,
-    },
+    profile,
   });
 });
 

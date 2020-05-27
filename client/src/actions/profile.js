@@ -11,7 +11,7 @@ import {
 // get all profiles
 export const getProfiles = () => async (dispatch) => {
   dispatch({ type: CLEAR_PROFILE });
-
+  console.log('all profiles');
   try {
     const res = await axios.get('api/profile/');
 
@@ -30,8 +30,7 @@ export const getProfiles = () => async (dispatch) => {
 // get all profile by id
 export const getProfileById = (userId) => async (dispatch) => {
   try {
-    const res = await axios.get(`api/profile/user/${userId}`);
-
+    const res = await axios.get(`/api/profile/user/${userId}`);
     dispatch({
       type: GET_PROFILE,
       payload: res.data.profile,
@@ -133,7 +132,7 @@ export const updateProfile = (formData, history) => async (dispatch) => {
 
 export const deleteAccount = () => async (dispatch) => {
   try {
-    const res = await axios.delete('api/profile');
+    await axios.delete('api/profile');
 
     dispatch({
       type: CLEAR_PROFILE,
