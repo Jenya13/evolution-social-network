@@ -17,9 +17,7 @@ exports.addPost = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: 'success',
-    data: {
-      post,
-    },
+    post,
   });
 });
 
@@ -28,9 +26,7 @@ exports.getPosts = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    data: {
-      posts,
-    },
+    posts,
   });
 });
 
@@ -43,9 +39,7 @@ exports.getPostById = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    data: {
-      post,
-    },
+    post,
   });
 });
 
@@ -82,9 +76,7 @@ exports.likePost = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    data: {
-      likes: updatedPost.likes,
-    },
+    likes: updatedPost.likes,
   });
 });
 
@@ -109,9 +101,7 @@ exports.unLikePost = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    data: {
-      likes: post.likes,
-    },
+    likes: post.likes,
   });
 });
 
@@ -136,9 +126,7 @@ exports.addComment = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: 'success',
-    data: {
-      comments: post.comments,
-    },
+    comments: post.comments,
   });
 });
 

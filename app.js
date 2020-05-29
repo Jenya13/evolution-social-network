@@ -12,7 +12,6 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// Init middleware
 app.use(express.json({ extended: false }));
 
 // App routes setting
