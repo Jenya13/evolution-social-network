@@ -11,6 +11,7 @@ const PostItem = ({
   deletePost,
   auth,
   post: { _id, text, name, user, comments, likes, date },
+  showActions,
 }) => (
   <div>
     <h4>{name}</h4>
@@ -18,17 +19,26 @@ const PostItem = ({
     <p>
       Posted at: <Moment format='YYYY/MM/DD'>{date}</Moment>
     </p>
-    <button onClick={(e) => addLike(_id)} type='button'>
-      {likes.length > 0 && <span>{likes.length}</span>}
-    </button>
-    <Link to={`/post/${_id}`}>
-      <p>Comments </p> {comments.length > 0 && <span>{comments.length}</span>}
-    </Link>
-    {!auth.loading && user === auth.user._id && (
-      <button onClick={(e) => deletePost(_id)}>Delete</button>
+    {showActions && (
+      <Fragment>
+        <button onClick={(e) => addLike(_id)} type='button'>
+          {likes.length > 0 && <span>{likes.length}</span>}
+        </button>
+        <Link to={`/post/${_id}`}>
+          <p>Comment </p>{' '}
+          {comments.length > 0 && <span>{comments.length}</span>}
+        </Link>
+        {!auth.loading && user === auth.user._id && (
+          <button onClick={(e) => deletePost(_id)}>Delete</button>
+        )}
+      </Fragment>
     )}
   </div>
 );
+
+PostItem.defaultProps = {
+  showActions: true,
+};
 
 PostItem.propTypes = {
   post: PropTypes.object.isRequired,
