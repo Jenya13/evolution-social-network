@@ -1,0 +1,53 @@
+@mixin navbar-links-color {
+  a {
+    color: DimGray;
+    text-decoration: none;
+  }
+  a:hover {
+    color: DarkSlateGray;
+  }
+}
+
+@mixin navbar-font-style {
+  font: {
+    size: $m-size;
+    weight: bold;
+    variant: small-caps;
+    family: Lato;
+  }
+}
+
+.nav-title {
+  margin-left: $xl-size;
+}
+
+.nav-wrapper {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-right: $xxxl-size;
+  margin-left: $xxxl-size;
+  @include navbar-font-style;
+}
+
+.links-group {
+  float: right;
+  display: flex;
+  margin: auto $l-size;
+
+  ul {
+    margin-right: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+    margin-right: $xxl-size;
+    font-weight: 600;
+  }
+}
+
+.navbar {
+  background-color: #87bdd8;
+  @include navbar-links-color;
+}

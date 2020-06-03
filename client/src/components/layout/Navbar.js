@@ -25,7 +25,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
 
   const guestLinks = (
-    <ul>
+    <ul className='nav-links'>
       <li>
         <Link to='/profiles'>Profiles</Link>
       </li>
@@ -39,14 +39,20 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
 
   return (
-    <nav>
-      <h1>
-        <Link to='/'>Evolution</Link>
-      </h1>
-      {!loading && (
-        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
-      )}
-    </nav>
+    <header className='navbar'>
+      <div className='nav-wrapper'>
+        <div className='nav-title'>
+          <h1>
+            <Link to='/'>Evolution</Link>
+          </h1>
+        </div>
+        <nav className='links-group'>
+          {!loading && (
+            <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+          )}
+        </nav>
+      </div>
+    </header>
   );
 };
 

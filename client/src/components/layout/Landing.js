@@ -9,20 +9,24 @@ const Landing = ({ isAuthenticated }) => {
   }
 
   return (
-    <section>
+    // <section>
+    <div>
+      <div className='landing'>
+        <h1 className='landing__title'>healthy people connector</h1>
+        <p className='landing__text'>
+          talk to other people who interesting to improve their lives
+        </p>
+      </div>
       <div>
-        <h1>healthy people connector</h1>
-        <p>talk to other people who interesting to improve their lives</p>
         <div>
-          <div>
-            <Link to='/register'>Sign Up</Link>
-          </div>
-          <div>
-            <Link to='/login'>Login</Link>
-          </div>
+          <Link to='/register'>Sign Up</Link>
+        </div>
+        <div>
+          <Link to='/login'>Login</Link>
         </div>
       </div>
-    </section>
+    </div>
+    /* </section> */
   );
 };
 
