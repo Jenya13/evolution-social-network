@@ -34,52 +34,61 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1>Sign Up</h1>
-      <p>Create your Account</p>
-      <form className='form' onSubmit={(e) => onSubmit(e)}>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Name'
-            name='name'
-            value={name}
-            onChange={(e) => onChange(e)}
-          />
+      <div className='content-container'>
+        <div>
+          <form className='form' onSubmit={(e) => onSubmit(e)}>
+            <h1>Sign Up</h1>
+            <p>Create your Account</p>
+
+            <input
+              className='text-input'
+              type='text'
+              placeholder='Name'
+              name='name'
+              value={name}
+              onChange={(e) => onChange(e)}
+            />
+
+            <input
+              className='text-input'
+              type='text'
+              placeholder='Email'
+              name='email'
+              value={email}
+              onChange={(e) => onChange(e)}
+            />
+
+            <input
+              className='text-input'
+              type='password'
+              placeholder='Password'
+              name='password'
+              value={password}
+              onChange={(e) => onChange(e)}
+              minLength='6'
+            />
+
+            <input
+              className='text-input'
+              type='password'
+              placeholder='Confirm password'
+              name='passwordConfirm'
+              value={passwordConfirm}
+              onChange={(e) => onChange(e)}
+              minLength='6'
+            />
+
+            <div>
+              <button className='button' onSubmit={onSubmit}>
+                Register
+              </button>
+            </div>
+            <p>
+              Already have an account? <Link to='/login'>Sign In</Link>
+            </p>
+          </form>
         </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Email'
-            name='email'
-            value={email}
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <div className='form-group'>
-          <input
-            type='password'
-            placeholder='Password'
-            name='password'
-            value={password}
-            onChange={(e) => onChange(e)}
-            minLength='6'
-          />
-        </div>
-        <div className='form-group'>
-          <input
-            type='password'
-            placeholder='Confirm password'
-            name='passwordConfirm'
-            value={passwordConfirm}
-            onChange={(e) => onChange(e)}
-            minLength='6'
-          />
-        </div>
-        <input type='submit' value='Register' />
-      </form>
-      <p>
-        Already have an account? <Link to='/login'>Sign In</Link>
-      </p>
+      </div>
     </Fragment>
   );
 };

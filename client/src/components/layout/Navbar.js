@@ -30,10 +30,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <Link to='/profiles'>Profiles</Link>
       </li>
       <li>
-        <Link to='/register'>Register</Link>
+        <Link to='/login'>Log in</Link>
       </li>
       <li>
-        <Link to='/login'>Login</Link>
+        <Link to='/register'>Sign up</Link>
       </li>
     </ul>
   );

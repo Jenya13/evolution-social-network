@@ -1,18 +1,17 @@
 .landing {
   border: 1px solid gray;
-  //   background-color: LightCyan;
-  background: #daebe8;
-  padding: 8px;
+  margin-top: $xl-size;
 }
 
-.landing__title {
+.page-header__title {
+  font-size: 40px;
   text-align: center;
-  text-transform: uppercase;
   color: #4caf50;
 }
 
 .landing__text {
   text-indent: 50px;
   text-align: center;
+  font-size: 25px;
   letter-spacing: 3px;
 }

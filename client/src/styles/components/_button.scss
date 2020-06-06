@@ -1,0 +1,12 @@
+.button {
+  background: #009199;
+  color: white;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 300;
+  padding: $s-size;
+}
+
+.button:hover {
+  background: #007980;
+}

@@ -1,0 +1,12 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 40rem;
+  border: 1px #cacccd;
+  margin: 25px auto;
+  padding: 25px 25px 25px 25px;
+  background-color: #00c2cc;
+  > * {
+    margin-bottom: $s-size;
+  }
+}
