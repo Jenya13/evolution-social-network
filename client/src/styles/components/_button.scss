@@ -1,5 +1,5 @@
 .button {
-  background: #009199;
+  background: $turquoise-dark;
   color: white;
   border: none;
   font-size: 1.8rem;
@@ -8,5 +8,5 @@
 }
 
 .button:hover {
-  background: #007980;
+  background: $turquoise-dark-hover;
 }

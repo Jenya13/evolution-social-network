@@ -49,8 +49,8 @@
 }
 
 .navbar {
-  background: linear-gradient(to left, #00afb9 75%, #ffffff 100%);
+  background: linear-gradient(to left, $turquoise-base 75%, #ffffff 100%);
   border: none;
-  border-bottom: 0.1rem solid darken(#00afb9, 3%);
+  border-bottom: 0.1rem solid darken($turquoise-base, 3%);
   @include navbar-links-color;
 }
