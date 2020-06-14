@@ -1,0 +1,33 @@
+.list {
+  background: $off-white;
+  border: 1px solid darken($color: $off-white, $amount: 7%);
+}
+
+.list-item {
+  background: $turquoise-light;
+  border: 1px solid darken($color: $turquoise-light, $amount: 7%);
+  margin: $s-size auto;
+  padding: $m-size $l-size;
+
+  ul {
+    margin-right: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+    margin-right: $m-size;
+    font-weight: 600;
+  }
+}
+
+.list-item-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-item-footer {
+  position: relative;
+  left: 560px;
+  padding: $s-size $l-size;
+}

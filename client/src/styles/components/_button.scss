@@ -5,8 +5,11 @@
   font-size: 1.8rem;
   font-weight: 300;
   padding: $s-size;
+  &:hover {
+    background: $turquoise-dark-hover;
+  }
 }
 
-.button:hover {
-  background: $turquoise-dark-hover;
+.button-link {
+  text-decoration: none;
 }

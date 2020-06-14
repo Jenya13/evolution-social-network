@@ -16,8 +16,8 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
         <Loading />
       ) : (
         <Fragment>
-          <h1>Profiles</h1>
-          <div>
+          <div className='content-container'>
+            <h1>Profiles</h1>
             {profiles.length > 0 ? (
               profiles.map((profile) => (
                 <ProfileItem key={profile._id} profile={profile} />
