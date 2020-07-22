@@ -36,7 +36,7 @@ const PostItem = ({
               {likes.length > 0 && <span>{likes.length}</span>}
             </button>
             <Link className='button-link' to={`/post/${_id}`}>
-              Comment {comments.length > 0 && <span>{comments.length}</span>}
+              {comments.length > 0 && <span>{comments.length} </span>}Comment
             </Link>
             {!auth.loading && user === auth.user._id && (
               <button className='button' onClick={(e) => deletePost(_id)}>

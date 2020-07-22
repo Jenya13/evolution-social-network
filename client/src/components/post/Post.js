@@ -16,16 +16,21 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
   return loading || post === null ? (
     <Loading />
   ) : (
-    <Fragment>
-      <CommentForm postId={post._id} />
-      <Link to='/posts'>Back</Link>
+    <div className='content-container'>
       <PostItem post={post} showActions={false} />
       <div>
         {post.comments.map((comment) => (
           <CommentItem key={comment._id} comment={comment} postId={post._id} />
         ))}
       </div>
-    </Fragment>
+
+      <CommentForm postId={post._id} />
+      <div className='link-back'>
+        <Link className='button-link ' to='/posts'>
+          Back
+        </Link>
+      </div>
+    </div>
   );
 };
 

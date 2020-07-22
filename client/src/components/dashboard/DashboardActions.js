@@ -7,7 +7,6 @@ const DashboardActions = () => {
       <Link className='button-link' to='/edit-profile'>
         Edit Profile
       </Link>
-      <br />
     </Fragment>
   );
 };

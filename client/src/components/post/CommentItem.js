@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -10,23 +10,37 @@ const CommentItem = ({
   deleteComment,
   comment: { _id, text, name, user, date },
   auth,
-}) => (
-  <div>
-    <div>
-      <Link to={`/profile/${user}`}></Link>
-      <h4>{name}</h4>
-    </div>
-    <div>
-      <p>{text}</p>
-      <p>
-        Posted on: <Moment format='YYYY/MM/DD'>{date}</Moment>
-      </p>
-      {!auth.loading && user === auth.user._id && (
-        <button onClick={(e) => deleteComment(postId, _id)}>delete </button>
+}) => {
+  const [displayComment, toggleComment] = useState(true);
+
+  return (
+    <Fragment>
+      {displayComment && (
+        <div className='post-item'>
+          <Link to={`/profile/${user}`}></Link>
+          <h4>{name}</h4>
+          <p>{text}</p>
+          <div className='post-footer '>
+            <p>
+              Posted on: <Moment format='DD/MM/YYYY'>{date}</Moment>
+            </p>
+            {!auth.loading && user === auth.user._id && (
+              <button
+                className='button'
+                onClick={(e) => {
+                  toggleComment(!displayComment);
+                  deleteComment(postId, _id);
+                }}
+              >
+                delete{' '}
+              </button>
+            )}
+          </div>
+        </div>
       )}
-    </div>
-  </div>
-);
+    </Fragment>
+  );
+};
 
 CommentItem.propTypes = {
   postId: PropTypes.string.isRequired,

@@ -5,7 +5,7 @@
   font-size: 1.8rem;
   font-weight: 300;
   padding: $s-size;
-  margin: $s-size $s-size;
+  margin: $s-size;
   &:hover {
     background: $turquoise-dark-hover;
   }
@@ -13,7 +13,6 @@
 .button-link {
   @extend .button;
   text-decoration: none;
-  // margin: $s-size $s-size;
 }
 
 .submit {
