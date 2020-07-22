@@ -10,7 +10,7 @@ const ProfileItem = ({
   },
 }) => {
   return (
-    <div className='list-item'>
+    <div className='list-item '>
       <div className='list-item-header'>
         <h3>img</h3>
         <h2>{name}</h2>
@@ -18,15 +18,18 @@ const ProfileItem = ({
       <p>
         <b>Status: {status}</b>
       </p>
+
       <div>
         <ul>
           <b>Skills: </b>
           {skills.slice(0, 4).map((skill, index) => (
-            <li key={index}> {skill} </li>
+            <li key={index}>{skill}</li>
           ))}
         </ul>
-        <div className='list-item-footer '>
-          <Link to={`/profile/${_id}`} className='button button-link'>
+      </div>
+      <div className='item-conteiner'>
+        <div className='right-link'>
+          <Link to={`/profile/${_id}`} className='button link '>
             View Profile
           </Link>
         </div>

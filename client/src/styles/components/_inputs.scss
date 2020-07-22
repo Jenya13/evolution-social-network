@@ -5,3 +5,15 @@
   font-weight: 30px;
   padding: $m-size;
 }
+
+.text-area {
+  border-left: 5px solid #00aab3;
+  height: 150px;
+  width: 70rem;
+  font-size: 20px;
+  font-weight: 30px;
+  padding: $m-size;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -15,12 +15,13 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
     <Loading />
   ) : (
     <Fragment>
-      <h1>Posts</h1>
-      <PostForm />
-      <div>
-        {posts.map((post) => (
-          <PostItem key={post._id} post={post} />
-        ))}
+      <div className='content-container'>
+        <PostForm />
+        <div>
+          {posts.map((post) => (
+            <PostItem key={post._id} post={post} />
+          ))}
+        </div>
       </div>
     </Fragment>
   );

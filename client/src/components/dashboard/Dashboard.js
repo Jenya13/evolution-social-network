@@ -20,21 +20,26 @@ const Dashboard = ({
     <Loading />
   ) : (
     <Fragment>
-      <h1>Dashboard</h1>
+      <div className='content-container'>
+        <h2>Welcome {user && user.name}</h2>
 
-      <h2>Welcome {user && user.name}</h2>
-
-      {profile !== null ? (
-        <Fragment>
-          <DashboardActions />
-          <button onClick={() => deleteAccount()}>Delete Account</button>
-        </Fragment>
-      ) : (
-        <Fragment>
-          <p>You have not setup a profile yet, please add some info </p>
-          <Link to='/create-profile'>Create Profile</Link>
-        </Fragment>
-      )}
+        {profile !== null ? (
+          <Fragment>
+            <DashboardActions />
+            <br />
+            <button className='button' onClick={() => deleteAccount()}>
+              Delete Account
+            </button>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <p>You have not setup a profile yet, please add some info </p>
+            <Link className='button-link' to='/create-profile'>
+              Create Profile
+            </Link>
+          </Fragment>
+        )}
+      </div>
     </Fragment>
   );
 };

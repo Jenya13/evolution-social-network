@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 const DashboardActions = () => {
   return (
-    <div>
-      <Link to='/edit-profile'>Edit Profile</Link>
-    </div>
+    <Fragment>
+      <Link className='button-link' to='/edit-profile'>
+        Edit Profile
+      </Link>
+      <br />
+    </Fragment>
   );
 };
 

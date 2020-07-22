@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 const ProfileTop = ({
@@ -10,51 +10,73 @@ const ProfileTop = ({
   },
 }) => {
   return (
-    <div>
-      <h1>{name}</h1>
-      <p>{status}</p>
-      <div>
+    <Fragment>
+      <div className='list-item-header'>
+        <h3>img</h3>
+        <h2>{name}</h2>
+      </div>
+
+      <p>
+        {' '}
+        <b> {status}</b>
+      </p>
+      <div className='links-container'>
         {website && (
-          <a
-            href={website}
-            target='_blank'
-            rel='noopener noreferrer'
-          >{`Visit ${name}'s website`}</a>
+          <div className='container'>
+            <a
+              className='button link'
+              href={website}
+              target='_blank'
+              rel='noopener noreferrer'
+            >{`Visit ${name}'s website`}</a>
+          </div>
         )}
 
         {social && social.youtube && (
-          <a
-            href={social.youtube}
-            target='_blank'
-            rel='noopener noreferrer'
-          >{`${name}'s youtube`}</a>
+          <div className='container'>
+            <a
+              className='button link'
+              href={social.youtube}
+              target='_blank'
+              rel='noopener noreferrer'
+            >{`${name}'s youtube`}</a>
+          </div>
         )}
 
         {social && social.facebook && (
-          <a
-            href={social.facebook}
-            target='_blank'
-            rel='noopener noreferrer'
-          >{`${name}'s facebook`}</a>
+          <div className='container'>
+            <a
+              className='button link'
+              href={social.facebook}
+              target='_blank'
+              rel='noopener noreferrer'
+            >{`${name}'s facebook`}</a>
+          </div>
         )}
 
         {social && social.instagram && (
-          <a
-            href={social.instagram}
-            target='_blank'
-            rel='noopener noreferrer'
-          >{`${name}'s instagram`}</a>
+          <div className='container'>
+            <a
+              className='button link'
+              href={social.instagram}
+              target='_blank'
+              rel='noopener noreferrer'
+            >{`${name}'s instagram`}</a>
+          </div>
         )}
 
         {social && social.linkedin && (
-          <a
-            href={social.linkedin}
-            target='_blank'
-            rel='noopener noreferrer'
-          >{`${name}'s linkedin`}</a>
+          <div className='container'>
+            <a
+              className='button link'
+              href={social.linkedin}
+              target='_blank'
+              rel='noopener noreferrer'
+            >{`${name}'s linkedin`}</a>
+          </div>
         )}
       </div>
-    </div>
+    </Fragment>
   );
 };
 

@@ -9,15 +9,16 @@ const ProfileAbout = ({
   },
 }) => {
   return (
-    <div>
+    <div className='container'>
       {skills && (
         <Fragment>
-          <h2>{name.trim().split(' ')[0]}'s Skils</h2>
-          <div>
+          <h2>{name.trim().split(' ')[0]}'s Skils:</h2>
+          <ul>
             {skills.map((skill, index) => (
-              <div key={index}>{skill}</div>
+              <li key={index}>{skill}</li>
             ))}
-          </div>
+          </ul>
+          <div>{bio}</div>
         </Fragment>
       )}
     </div>

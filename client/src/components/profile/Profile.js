@@ -23,15 +23,28 @@ const Profile = ({
         <Loading />
       ) : (
         <Fragment>
-          <Link to='/profiles'>Back to profiles</Link>
-          {auth.isAuthenticated &&
-            auth.loading === false &&
-            auth.user._id === profile.user._id && (
-              <Link to='/edit-profile'>Edit profile</Link>
-            )}
-          <div>
-            <ProfileTop profile={profile} />
-            <ProfileAbout profile={profile} />
+          <div className='content-container'>
+            <div className='list-item'>
+              <div className='item-conteiner'>
+                <ProfileTop profile={profile} />
+                <ProfileAbout profile={profile} />
+
+                {auth.isAuthenticated &&
+                  auth.loading === false &&
+                  auth.user._id === profile.user._id && (
+                    <div className='left-link'>
+                      <Link className='button link' to='/edit-profile'>
+                        Edit profile
+                      </Link>
+                    </div>
+                  )}
+                <div className='right-link'>
+                  <Link className='button link' to='/profiles'>
+                    Back to profiles
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </Fragment>
       )}

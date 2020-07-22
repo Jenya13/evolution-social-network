@@ -21,6 +21,11 @@
   }
 }
 
+.post-item {
+  @extend .list-item;
+  background-color: $light-grey;
+}
+
 .list-item-header {
   display: flex;
   justify-content: space-between;

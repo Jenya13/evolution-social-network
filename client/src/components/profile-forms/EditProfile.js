@@ -56,40 +56,48 @@ const EditProfile = ({
 
   return (
     <Fragment>
-      <h1>Create Your Profile</h1>
       <form className='form' onSubmit={(e) => onSubmit(e)}>
+        <h1>Create Your Profile</h1>
+        <br />
         <div>
           <input
+            className='text-input'
             type='text'
             placeholder='Website'
             name='website'
             value={website}
             onChange={(e) => onChange(e)}
           />
-          <small>Could be your own or a company website</small>
+          <br />
+          <small>* Could be your own or a company website</small>
         </div>
         <div>
           <input
+            className='text-input'
             type='text'
             placeholder='Status'
             name='status'
             value={status}
             onChange={(e) => onChange(e)}
           />
-          <small>Give us an idea where you are at your career</small>
+          <br />
+          <small>* Give us an idea where you are at your career</small>
         </div>
         <div>
           <input
+            className='text-input'
             type='text'
             placeholder='Skills'
             name='skills'
             value={skills}
             onChange={(e) => onChange(e)}
           />
-          <small>Please use comma seperated values</small>
+          <br />
+          <small>* Please use comma seperated values</small>
         </div>
         <div>
           <button
+            className='button'
             onClick={() => toggleSocilaInputs(!displaySocialInputs)}
             type='button'
           >
@@ -101,49 +109,65 @@ const EditProfile = ({
           <Fragment>
             <div>
               <input
+                className='text-input'
                 type='text'
                 placeholder='YouTube URL'
                 name='youtube'
                 value={youtube}
                 onChange={(e) => onChange(e)}
               />
-              <small>Your YouTube Cannel</small>
+              <br />
+              <small>* Your YouTube Cannel</small>
             </div>
             <div>
               <input
+                className='text-input'
                 type='text'
                 placeholder='Facebook URL'
                 name='facebook'
                 value={facebook}
                 onChange={(e) => onChange(e)}
               />
-              <small>Your facebook page</small>
+              <br />
+              <small>* Your facebook page</small>
             </div>
             <div>
               <input
+                className='text-input'
                 type='text'
                 placeholder='Linkedin URL'
                 name='linkedin'
                 value={linkedin}
                 onChange={(e) => onChange(e)}
               />
-              <small>Your linkedin page</small>
+              <br />
+              <small>* Your linkedin page</small>
             </div>
             <div>
               <input
+                className='text-input'
                 type='text'
                 placeholder='Instagram URL'
                 name='instagram'
                 value={instagram}
                 onChange={(e) => onChange(e)}
               />
-              <small>your instagram page</small>
+              <br />
+              <small>* Your instagram page</small>
             </div>
           </Fragment>
         )}
 
-        <input type='submit' />
-        <Link to='/dashboard'>Back</Link>
+        <div className='item-conteiner'>
+          <div className='right-link '>
+            <input className='button link' type='submit' />
+          </div>
+          <div className='left-link down '>
+            <Link className='button link' to='/dashboard'>
+              Back
+            </Link>
+          </div>
+        </div>
       </form>
     </Fragment>
   );

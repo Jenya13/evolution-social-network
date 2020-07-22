@@ -1,5 +1,37 @@
 .content-container {
-  margin: 0 auto;
-  padding: 0 $m-size;
+  margin: $l-size auto;
+  padding: $s-size $m-size;
   max-width: 80rem;
+}
+
+.item-conteiner {
+  position: relative;
+
+  margin: $m-size;
+  padding: $m-size;
+}
+
+.links-container {
+  width: 40%;
+}
+
+.container {
+  padding: $m-size 0;
+  margin: $m-size 0;
+}
+
+.post-container {
+  background-color: $light-grey;
+  padding: $s-size $s-size;
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date {
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }

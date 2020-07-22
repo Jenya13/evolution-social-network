@@ -7,10 +7,9 @@ const PostForm = ({ addPost }) => {
   const [text, setText] = useState('');
 
   return (
-    <div>
-      <div>
-        <h3>say something..</h3>
-      </div>
+    <div className='post-container'>
+      <h3 className='form-header'>say something..</h3>
+
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -19,6 +18,7 @@ const PostForm = ({ addPost }) => {
         }}
       >
         <textarea
+          className='text-area'
           name='text'
           cols='30'
           rows='5'
@@ -26,7 +26,7 @@ const PostForm = ({ addPost }) => {
           value={text}
           onChange={(e) => setText(e.target.value)}
         ></textarea>
-        <input type='submit' value='submit' />
+        <input className='button submit' type='submit' value='submit' />
       </form>
     </div>
   );

@@ -90,7 +90,6 @@ exports.getAllProfiles = catchAsync(async (req, res, next) => {
 });
 
 exports.getProfileByUser = catchAsync(async (req, res, next) => {
-  console.log('in controller');
   const profile = await Profile.findOne({
     user: req.params.user_id,
   }).populate('user', ['name']);

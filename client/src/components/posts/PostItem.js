@@ -13,26 +13,40 @@ const PostItem = ({
   post: { _id, text, name, user, comments, likes, date },
   showActions,
 }) => (
-  <div>
+  <div className='post-item'>
     <h4>{name}</h4>
     <p>{text}</p>
-    <p>
-      Posted at: <Moment format='YYYY/MM/DD'>{date}</Moment>
-    </p>
-    {showActions && (
-      <Fragment>
-        <button onClick={(e) => addLike(_id)} type='button'>
-          {likes.length > 0 && <span>{likes.length}</span>}
-        </button>
-        <Link to={`/post/${_id}`}>
-          <p>Comment </p>{' '}
-          {comments.length > 0 && <span>{comments.length}</span>}
-        </Link>
-        {!auth.loading && user === auth.user._id && (
-          <button onClick={(e) => deletePost(_id)}>Delete</button>
+    <div className='post-footer '>
+      {' '}
+      <p>
+        Posted at:{' '}
+        <Moment className='date' format='DD/MM/YYYY'>
+          {date}
+        </Moment>
+      </p>
+      <div>
+        {showActions && (
+          <Fragment>
+            <button
+              className='button'
+              onClick={(e) => addLike(_id)}
+              type='button'
+            >
+              {' '}
+              {likes.length > 0 && <span>{likes.length}</span>}
+            </button>
+            <Link className='button-link' to={`/post/${_id}`}>
+              Comment {comments.length > 0 && <span>{comments.length}</span>}
+            </Link>
+            {!auth.loading && user === auth.user._id && (
+              <button className='button' onClick={(e) => deletePost(_id)}>
+                Delete
+              </button>
+            )}
+          </Fragment>
         )}
-      </Fragment>
-    )}
+      </div>
+    </div>
   </div>
 );
 
