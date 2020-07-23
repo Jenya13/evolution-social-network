@@ -21,7 +21,7 @@ const updateFields = (req) => {
 
   if (status) profileFields.status = status;
   if (skills) profileFields.skills = skills; //skills.split(',').map((skill) => skill.trim());
-  console.log(profileFields);
+
   profileFields.social = {};
   if (youtube) profileFields.social.youtube = youtube;
   if (facebook) profileFields.social.facebook = facebook;
