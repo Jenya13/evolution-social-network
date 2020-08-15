@@ -9,14 +9,14 @@ const Landing = ({ isAuthenticated }) => {
   }
 
   return (
-    <section>
-      <div className=' landing '>
-        <h1 className='page-header__title'>Healthy People Connector</h1>
-        <p className='landing__text'>
-          talk to other people who interesting to improve their lives
-        </p>
-      </div>
-    </section>
+    // <section>
+    <div className=' landing '>
+      <h1 className='page-header__title'>Healthy People Connector</h1>
+      <p className='landing__text'>
+        talk to other people who interesting to improve their lives
+      </p>
+    </div>
+    // </section>
   );
 };
 

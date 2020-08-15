@@ -124,7 +124,6 @@ exports.addComment = catchAsync(async (req, res, next) => {
     { new: true, runValidators: true }
   );
 
-  console.log(updatedPost);
   res.status(201).json({
     status: 'success',
     updatedPost,

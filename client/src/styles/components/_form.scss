@@ -1,15 +1,33 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  max-width: 40rem;
-  border: 1px #cacccd;
-  margin: 25px auto;
-  padding: 25px 25px 25px 25px;
-  background-color: $turquoise-light;
-  > * {
-    margin-bottom: $s-size;
-  }
+.post-form {
+  @extend .card;
+  @extend .bg-light;
+  margin: $s-size auto;
+  border-radius: 10px;
 }
+
+.post-form-body {
+  @extend .card-body;
+  border-radius: 10px;
+}
+
+.comment-form {
+  @extend .d-flex;
+  @extend .align-items-center;
+  @extend .justify-content-between;
+}
+
+// .form {
+//   display: flex;
+//   flex-direction: column;
+//   max-width: 40rem;
+//   border: 1px #cacccd;
+//   margin: 25px auto;
+//   padding: 25px 25px 25px 25px;
+//   background-color: $turquoise-light;
+//   > * {
+//     margin-bottom: $s-size;
+//   }
+// }
 
 .form-header {
   margin: $s-size $l-size;

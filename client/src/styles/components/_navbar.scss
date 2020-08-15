@@ -1,40 +1,7 @@
-@mixin navbar-links-color {
-  a {
-    color: DimGray;
-    text-decoration: none;
-  }
-  a:hover {
-    color: DarkSlateGray;
-  }
-}
-
-@mixin navbar-font-style {
-  font: {
-    size: $m-size;
-    weight: bold;
-    variant: small-caps;
-    family: Lato;
-  }
-}
-
-.nav-title {
-  margin-left: $xxxl-size;
-  padding-left: $xxxl-size;
-}
-
-.nav-wrapper {
-  width: 80%;
-  display: flex;
-  justify-content: space-between;
-  margin-right: $xxxl-size;
-  margin-left: $xxxl-size;
-  @include navbar-font-style;
-}
-
-.links-group {
+.main-links-group {
   float: right;
   display: flex;
-  margin: auto $l-size;
+  margin: auto $xxxl-size;
 
   ul {
     margin-right: 0;
@@ -48,9 +15,53 @@
   }
 }
 
-.navbar {
+.sub-links-group {
+  li {
+    margin-left: $xxl-size;
+    margin-right: $xxl-size;
+  }
+}
+
+@mixin navbar-font-style {
+  font: {
+    size: $m-size;
+    weight: bold;
+    variant: small-caps;
+    family: Lato;
+  }
+}
+
+@mixin navbar-links-color {
+  a {
+    color: DimGray;
+    text-decoration: none;
+  }
+  a:hover {
+    color: DarkSlateGray;
+  }
+}
+
+.nav-title {
+  margin-left: $xxxl-size;
+  padding-left: $xxxl-size;
+}
+
+.main-bar {
   background: linear-gradient(to left, $turquoise-base 75%, #ffffff 100%);
   border: none;
   border-bottom: 0.1rem solid darken($turquoise-base, 3%);
+  padding-top: $s-size;
+  padding-bottom: $s-size;
+  @include navbar-font-style;
   @include navbar-links-color;
+  @extend .navbar;
+}
+
+.sub-bar {
+  background: $turquoise-light;
+  padding-top: $s-size;
+  padding-bottom: $s-size;
+  @include navbar-font-style;
+  @include navbar-links-color;
+  @extend .nav;
 }

@@ -1,3 +1,60 @@
+.post {
+  @extend .card;
+  @extend .bg-light;
+  margin: $s-size auto;
+  border-radius: 10px;
+}
+
+.post-body {
+  @extend .card-body;
+  padding: 0 $l-size;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+.post-header {
+  padding: $m-size $l-size 0px;
+  h4 {
+    margin: 0 auto;
+  }
+}
+
+.post-footer {
+  padding: $s-size $l-size $m-size;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+.post-buttons-wrapper {
+  @extend .d-flex;
+  @extend .justify-content-between;
+}
+
+.comment {
+  @extend .card;
+  @extend .bg-light;
+  border-style: none;
+  margin: $s-size auto;
+}
+
+.comment-body {
+  @extend .post-body;
+}
+
+.comment-header {
+  @extend .post-header;
+  padding-top: $s-size;
+  padding-bottom: $s-size;
+}
+
+.comment-footer {
+  @extend .post-footer;
+  padding-bottom: 0px;
+}
+
+///
 .list {
   background: $off-white;
   border: 1px solid darken($color: $off-white, $amount: 7%);
@@ -19,11 +76,6 @@
     margin-right: $m-size;
     font-weight: 600;
   }
-}
-
-.post-item {
-  @extend .list-item;
-  background-color: $light-grey;
 }
 
 .list-item-header {

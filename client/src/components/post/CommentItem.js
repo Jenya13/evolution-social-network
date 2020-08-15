@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import { Link } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
@@ -16,26 +16,45 @@ const CommentItem = ({
   return (
     <Fragment>
       {displayComment && (
-        <div className='post-item'>
-          <Link to={`/profile/${user}`}></Link>
-          <h4>{name}</h4>
-          <p>{text}</p>
-          <div className='post-footer '>
-            <p>
-              Posted on: <Moment format='DD/MM/YYYY'>{date}</Moment>
-            </p>
-            {!auth.loading && user === auth.user._id && (
-              <button
-                className='button'
-                onClick={(e) => {
-                  toggleComment(!displayComment);
-                  deleteComment(postId, _id);
-                }}
-              >
-                delete{' '}
-              </button>
-            )}
+        <div className='comment'>
+          <div className='comment-header'>
+            <div className='media'>
+              <img
+                src='/unknown-user.png'
+                alt='unknown user'
+                className='mr-3  rounded-circle'
+                style={{ width: '20px', margin: '0px 0px' }}
+              />
+              <div className='media-body '>
+                <h4>{name}</h4>
+              </div>
+            </div>
           </div>
+
+          <div className='comment-body '>
+            <p>{text}</p>
+          </div>
+          <div className='comment-footer '>
+            <div className='d-flex align-items-center justify-content-between'>
+              <p>
+                <small>
+                  <Moment fromNow>{date}</Moment>
+                </small>
+              </p>
+              {!auth.loading && user === auth.user._id && (
+                <button
+                  className='post-button'
+                  onClick={(e) => {
+                    toggleComment(!displayComment);
+                    deleteComment(postId, _id);
+                  }}
+                >
+                  delete{' '}
+                </button>
+              )}
+            </div>
+          </div>
+          <hr />
         </div>
       )}
     </Fragment>

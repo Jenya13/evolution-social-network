@@ -1,36 +1,23 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import PostItem from './../posts/PostItem';
 import { getPost } from './../../actions/post';
 import Loading from './../layout/Loading';
-import { Link } from 'react-router-dom';
-import CommentForm from './CommentForm';
 import CommentItem from './CommentItem';
 
-const Post = ({ getPost, post: { post, loading }, match }) => {
+const Post = ({ getPost, post: { post, loading }, id }) => {
   useEffect(() => {
-    getPost(match.params.id);
-  }, [getPost, match.params.id]);
+    getPost(id);
+  }, [getPost]);
 
   return loading || post === null ? (
     <Loading />
   ) : (
-    <div className='content-container'>
-      <PostItem post={post} showActions={false} />
-      <div>
-        {post.comments.map((comment) => (
-          <CommentItem key={comment._id} comment={comment} postId={post._id} />
-        ))}
-      </div>
-
-      <CommentForm postId={post._id} />
-      <div className='link-back'>
-        <Link className='button-link ' to='/posts'>
-          Back
-        </Link>
-      </div>
-    </div>
+    <Fragment>
+      {post.comments.map((comment) => (
+        <CommentItem key={comment._id} comment={comment} postId={post._id} />
+      ))}
+    </Fragment>
   );
 };
 

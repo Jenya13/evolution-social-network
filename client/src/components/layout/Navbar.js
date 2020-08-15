@@ -3,19 +3,11 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from './../../actions/auth';
+import SubBar from './SubBar';
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
-    <ul>
-      <li>
-        <Link to='/posts'>Posts</Link>
-      </li>
-      <li>
-        <Link to='/profiles'>Profiles</Link>
-      </li>
-      <li>
-        <Link to='/register'>Dashboard</Link>
-      </li>
+    <ul className='main-links-group'>
       <li>
         <a onClick={logout} href='#!'>
           Logout
@@ -25,7 +17,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
 
   const guestLinks = (
-    <ul className='nav-links'>
+    <ul className='main-links-group'>
       <li>
         <Link to='/profiles'>Profiles</Link>
       </li>
@@ -39,20 +31,25 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
 
   return (
-    <header className='navbar'>
-      <div className='nav-wrapper'>
+    <div>
+      <nav className='main-bar justify-content-between'>
         <div className='nav-title'>
           <h1>
             <Link to='/'>Evolution</Link>
           </h1>
         </div>
-        <nav className='links-group'>
-          {!loading && (
-            <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
-          )}
-        </nav>
+        {!loading && (
+          <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+        )}
+      </nav>
+      <div>
+        {!loading && (
+          <Fragment>
+            {isAuthenticated ? <SubBar /> : <Fragment></Fragment>}
+          </Fragment>
+        )}
       </div>
-    </header>
+    </div>
   );
 };
 

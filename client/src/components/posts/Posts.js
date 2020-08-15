@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Loading from './../layout/Loading';
@@ -14,13 +14,19 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
   return loading ? (
     <Loading />
   ) : (
-    <div className='content-container'>
-      <PostForm />
-      <div>
-        {posts.map((post) => (
-          <PostItem key={post._id} post={post} />
-        ))}
+    <div className='row justify-content-md-center '>
+      <div className='col-3'></div>
+
+      <div className='col-sm'>
+        <PostForm />
+        <div>
+          {posts.map((post) => (
+            <PostItem key={post._id} post={post} />
+          ))}
+        </div>
       </div>
+
+      <div className='col-3'></div>
     </div>
   );
 };

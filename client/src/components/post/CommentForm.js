@@ -5,31 +5,36 @@ import { addComment } from './../../actions/post';
 
 const CommentForm = ({ postId, addComment }) => {
   const [text, setText] = useState('');
+  const [row, setRow] = useState(1);
+
+  const handleRows = () => {
+    setRow(
+      row <= 1 && text === '' ? row + 3 : row > 1 && text === '' ? row - 3 : row
+    );
+  };
 
   return (
-    <div className='post-container'>
-      <div>
-        <h3 className='form-header'>Leave comment</h3>
-      </div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          addComment(postId, { text });
-          setText('');
-        }}
-      >
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        addComment(postId, { text });
+        setText('');
+      }}
+    >
+      <div className='comment-form'>
         <textarea
-          className='text-area'
+          className='form-control'
           name='text'
-          cols='30'
-          rows='5'
-          placeholder='Create a post'
+          cols='50'
+          rows={row}
+          placeholder='Comment'
           value={text}
           onChange={(e) => setText(e.target.value)}
+          onClick={handleRows}
         ></textarea>
-        <input className='button submit' type='submit' value='submit' />
-      </form>
-    </div>
+        <input className='post-button' type='submit' value='submit' />
+      </div>
+    </form>
   );
 };
 
