@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -26,43 +26,60 @@ const Login = ({ login, isAuthenticated }) => {
   }
 
   return (
-    <Fragment>
-      <div className='content-container'>
-        <form className='form' onSubmit={(e) => onSubmit(e)}>
-          <div>
-            <h1>Sign In</h1>
-            <p>Sign Into Account</p>
-          </div>
-          <input
-            className='text-input'
-            type='text'
-            placeholder='Email'
-            name='email'
-            value={email}
-            onChange={(e) => onChange(e)}
-          />
+    <div className='row justify-content-md-center mt-5'>
+      <div className='col-3'></div>
+      <div className='form-container'>
+        <div className='col-sm'>
+          <div className='item shadow'>
+            <form className='form' onSubmit={(e) => onSubmit(e)}>
+              <div className='form__header'>
+                <h1>Sign In</h1>
+              </div>
 
-          <input
-            className='text-input'
-            type='password'
-            placeholder='Password'
-            name='password'
-            value={password}
-            onChange={(e) => onChange(e)}
-            minLength='6'
-          />
+              <div className='inputs-container'>
+                <p>Sign Into Account</p>
+                <div className='input-group mb-4'>
+                  <input
+                    className='text-input'
+                    type='text'
+                    placeholder='Email'
+                    name='email'
+                    value={email}
+                    onChange={(e) => onChange(e)}
+                  />
+                </div>
 
-          <div>
-            <button className='button' onSubmit={onSubmit}>
-              Login
-            </button>
+                <div className='input-group mb-4'>
+                  <input
+                    className='text-input '
+                    type='password'
+                    placeholder='Password'
+                    name='password'
+                    value={password}
+                    onChange={(e) => onChange(e)}
+                    minLength='6'
+                  />
+                </div>
+              </div>
+              <div className='form__footer'>
+                <div>
+                  <button className='button btn--submit' onSubmit={onSubmit}>
+                    Login
+                  </button>
+                </div>
+                <p>
+                  Don't have an account?{' '}
+                  <Link to='/Register'>
+                    <small>Sign Up </small>{' '}
+                  </Link>
+                </p>
+              </div>
+            </form>
           </div>
-          <p>
-            Don't have an account? <Link to='/Register'>Sign Up</Link>
-          </p>
-        </form>
+        </div>
       </div>
-    </Fragment>
+      <div className='col-3'></div>
+    </div>
   );
 };
 

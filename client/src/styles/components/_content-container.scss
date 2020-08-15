@@ -1,9 +1,13 @@
 .shadow {
   @extend .shadow-sm;
-  // @extend .p-3;
-  // @extend .mb-5;
-  // @extend .bg-white;
-  // @extend .rounded;
+}
+
+.form-container {
+  width: 500px;
+}
+
+.inputs-container {
+  padding: 0 60px;
 }
 
 // .content-container {

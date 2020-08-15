@@ -8,6 +8,10 @@ button {
   @extend button;
 }
 
+.btn--submit {
+  background-color: $blue;
+}
+
 // .button {
 //   background: $turquoise-dark;
 //   color: white;

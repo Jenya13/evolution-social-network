@@ -17,9 +17,9 @@ const PostItem = ({
   const [commentsState, setComments] = useState(false);
 
   return (
-    <div className='post shadow'>
+    <div className='item shadow'>
       <Fragment>
-        <div className='post-header'>
+        <div className='item-header'>
           <div className='media'>
             <img
               src='/unknown-user.png'
@@ -34,13 +34,13 @@ const PostItem = ({
         </div>
         <hr />
       </Fragment>
-      <div className='post-body'>
+      <div className='item-body'>
         <p>{text}</p>
       </div>
       <hr />
       <div>
         {' '}
-        <div className='post-footer'>
+        <div className='item-footer'>
           <div className='d-flex align-items-center justify-content-between'>
             <p>
               {' '}

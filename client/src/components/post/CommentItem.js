@@ -1,5 +1,4 @@
 import React, { useState, Fragment } from 'react';
-
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
@@ -34,7 +33,7 @@ const CommentItem = ({
           <div className='comment-body '>
             <p>{text}</p>
           </div>
-          <div className='comment-footer '>
+          <div className='comment__footer '>
             <div className='d-flex align-items-center justify-content-between'>
               <p>
                 <small>

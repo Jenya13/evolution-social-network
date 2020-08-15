@@ -47,9 +47,9 @@
 }
 
 .main-bar {
-  background: linear-gradient(to left, $turquoise-base 75%, #ffffff 100%);
+  background: linear-gradient(to left, $blue 75%, #ffffff 100%);
   border: none;
-  border-bottom: 0.1rem solid darken($turquoise-base, 3%);
+  border-bottom: 0.1rem solid darken($blue, 3%);
   padding-top: $s-size;
   padding-bottom: $s-size;
   @include navbar-font-style;
@@ -58,7 +58,7 @@
 }
 
 .sub-bar {
-  background: $turquoise-light;
+  background: $light-blue;
   padding-top: $s-size;
   padding-bottom: $s-size;
   @include navbar-font-style;

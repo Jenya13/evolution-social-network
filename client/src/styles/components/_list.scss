@@ -1,11 +1,11 @@
-.post {
+.item {
   @extend .card;
   @extend .bg-light;
   margin: $s-size auto;
   border-radius: 10px;
 }
 
-.post-body {
+.item-body {
   @extend .card-body;
   padding: 0 $l-size;
   p {
@@ -13,14 +13,14 @@
   }
 }
 
-.post-header {
+.item-header {
   padding: $m-size $l-size 0px;
   h4 {
     margin: 0 auto;
   }
 }
 
-.post-footer {
+.item-footer {
   padding: $s-size $l-size $m-size;
   p {
     margin-bottom: 0px;
@@ -40,51 +40,51 @@
 }
 
 .comment-body {
-  @extend .post-body;
+  @extend .item-body;
 }
 
 .comment-header {
-  @extend .post-header;
+  @extend .item-header;
   padding-top: $s-size;
   padding-bottom: $s-size;
 }
 
 .comment-footer {
-  @extend .post-footer;
+  @extend .item-footer;
   padding-bottom: 0px;
 }
 
 ///
-.list {
-  background: $off-white;
-  border: 1px solid darken($color: $off-white, $amount: 7%);
-}
+// .list {
+//   background: $off-white;
+//   border: 1px solid darken($color: $off-white, $amount: 7%);
+// }
 
-.list-item {
-  background: $turquoise-light;
-  border: 1px solid darken($color: $turquoise-light, $amount: 7%);
-  margin: $s-size auto;
-  padding: $m-size $l-size;
+// .list-item {
+//   background: $turquoise-light;
+//   border: 1px solid darken($color: $turquoise-light, $amount: 7%);
+//   margin: $s-size auto;
+//   padding: $m-size $l-size;
 
-  ul {
-    margin-right: 0;
-    padding: 0;
-    list-style: none;
-  }
-  li {
-    display: inline-block;
-    margin-right: $m-size;
-    font-weight: 600;
-  }
-}
+//   ul {
+//     margin-right: 0;
+//     padding: 0;
+//     list-style: none;
+//   }
+//   li {
+//     display: inline-block;
+//     margin-right: $m-size;
+//     font-weight: 600;
+//   }
+// }
 
-.list-item-header {
-  display: flex;
-  justify-content: space-between;
-}
+// .list-item-header {
+//   display: flex;
+//   justify-content: space-between;
+// }
 
-.list-item-footer {
-  position: relative;
-  left: 560px;
-  padding: $s-size $l-size;
-}
+// .list-item-footer {
+//   position: relative;
+//   left: 560px;
+//   padding: $s-size $l-size;
+// }
