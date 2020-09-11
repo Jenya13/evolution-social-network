@@ -15,18 +15,23 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
       {loading ? (
         <Loading />
       ) : (
-        <Fragment>
-          <div className='content-container'>
-            <h1>Profiles</h1>
+        <div className='row justify-content-md-center mt-5'>
+          <div className='col-3'></div>
+          <div className='col-sm'>
             {profiles.length > 0 ? (
               profiles.map((profile) => (
-                <ProfileItem key={profile._id} profile={profile} />
+                <div className='profiles-container'>
+                  <div className='profile-item shadow'>
+                    <ProfileItem key={profile._id} profile={profile} />
+                  </div>
+                </div>
               ))
             ) : (
               <h4>Not Found Profiles</h4>
             )}
           </div>
-        </Fragment>
+          <div className='col-3'></div>
+        </div>
       )}
     </Fragment>
   );

@@ -54,7 +54,7 @@ const PostItem = ({
                 <Fragment>
                   {' '}
                   <button
-                    className='post-button'
+                    className='btn btn--submit btn--posts' //'post-button'
                     onClick={(e) => addLike(_id)}
                     type='button'
                   >
@@ -65,7 +65,7 @@ const PostItem = ({
                     )}
                   </button>
                   <button
-                    className='post-button'
+                    className='btn btn--submit btn--posts' //post-button'
                     onClick={() => setComments(!commentsState)}
                   >
                     {comments.length > 0 && <span>{comments.length} </span>}
@@ -73,7 +73,7 @@ const PostItem = ({
                   </button>
                   {!auth.loading && user === auth.user._id && (
                     <button
-                      className='post-button'
+                      className='btn btn--submit btn--posts' //'post-button'
                       onClick={(e) => deletePost(_id)}
                     >
                       Delete

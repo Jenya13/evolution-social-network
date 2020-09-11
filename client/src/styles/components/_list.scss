@@ -54,6 +54,49 @@
   padding-bottom: 0px;
 }
 
+.profile-item {
+  @extend .item;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 15px 20px 15px 20px;
+
+  &__header {
+    margin-bottom: $m-size;
+    @extend .media;
+  }
+
+  &__image {
+    @extend .mr-3;
+    @extend .rounded-circle;
+  }
+
+  &__name {
+    @extend .media-body;
+
+    h4 {
+      margin: 0px;
+      font-size: 25px;
+    }
+  }
+
+  &__body {
+    margin-bottom: $m-size;
+  }
+
+  &__skill-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    li {
+      display: inline;
+    }
+  }
+
+  &__footer {
+  }
+}
+
 ///
 // .list {
 //   background: $off-white;

@@ -2,59 +2,32 @@ button {
   @extend .btn;
 }
 
-.post-button {
+.btn__link {
+  @extend .btn-lg;
+  padding: 0px;
+  text-decoration: none;
+  background-color: $blue;
+
+  &--right {
+    float: right;
+  }
+}
+
+.btn--wrapper {
+  float: right;
+  width: 50px;
+}
+
+.btn--posts {
   margin-left: $s-size;
-  @extend .btn-secondary;
-  @extend button;
 }
 
 .btn--submit {
   background-color: $blue;
+  color: $off-white;
+
+  &:hover {
+    background-color: lighten($blue, 5%);
+    color: $off-white;
+  }
 }
-
-// .button {
-//   background: $turquoise-dark;
-//   color: white;
-//   border: none;
-//   font-size: 1.8rem;
-//   font-weight: 300;
-//   padding: $s-size;
-//   margin: $s-size;
-//   &:hover {
-//     background: $turquoise-dark-hover;
-//   }
-// }
-// .button-link {
-//   @extend .button;
-//   text-decoration: none;
-// }
-
-// .submit {
-//   display: block;
-//   margin-left: $l-size;
-//   margin-right: $l-size;
-//   margin-top: $s-size;
-//   margin-bottom: $s-size;
-// }
-
-// .link {
-//   text-decoration: none;
-//   padding: $s-size $s-size;
-//   margin: 0 auto;
-// }
-
-// .right-link {
-//   position: absolute;
-//   right: 0;
-//   padding: 0 0 $l-size;
-// }
-
-// .left-link {
-//   position: absolute;
-//   left: 0;
-//   padding: 0 0 $l-size;
-// }
-
-// .down {
-//   padding-top: $s-size;
-// }

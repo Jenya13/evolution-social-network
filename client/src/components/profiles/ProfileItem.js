@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -10,31 +10,40 @@ const ProfileItem = ({
   },
 }) => {
   return (
-    <div className='list-item '>
-      <div className='list-item-header'>
-        <h3>img</h3>
-        <h2>{name}</h2>
+    <Fragment>
+      <div className='profile-item__header'>
+        <img
+          src='/unknown-user.png'
+          alt='unknown user'
+          className='profile-item__image'
+          style={{ width: '30px', margin: '0px 0px' }}
+        />
+        <div className='profile-item__name'>
+          <h4>{name}</h4>
+        </div>
       </div>
+
       <p>
         <b>Status: {status}</b>
       </p>
 
-      <div>
-        <ul>
+      <div className='profile-item__body'>
+        <ul className='profile-item__skill-list'>
           <b>Skills: </b>
           {skills.slice(0, 4).map((skill, index) => (
-            <li key={index}>{skill}</li>
+            <li key={index}> {skill} </li>
           ))}
         </ul>
       </div>
-      <div className='item-conteiner'>
-        <div className='right-link'>
-          <Link to={`/profile/${_id}`} className='button link '>
-            View Profile
-          </Link>
-        </div>
+      <div className='profile-item__footer'>
+        <Link
+          to={`/profile/${_id}`}
+          className='btn btn--submit btn__link--right '
+        >
+          View Profile
+        </Link>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

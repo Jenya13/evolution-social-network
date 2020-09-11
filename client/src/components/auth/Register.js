@@ -44,7 +44,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               </div>
 
               <div className='inputs-container'>
-                <p>Create your Account</p>
+                <p>Create Your Account</p>
 
                 <div className='input-group mb-4'>
                   <input

@@ -32,7 +32,11 @@ const CommentForm = ({ postId, addComment }) => {
           onChange={(e) => setText(e.target.value)}
           onClick={handleRows}
         ></textarea>
-        <input className='post-button' type='submit' value='submit' />
+        <input
+          className='btn btn--submit btn--posts'
+          type='submit'
+          value='Post'
+        />
       </div>
     </form>
   );

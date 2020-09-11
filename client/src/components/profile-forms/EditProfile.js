@@ -56,119 +56,133 @@ const EditProfile = ({
 
   return (
     <Fragment>
-      <form className='form' onSubmit={(e) => onSubmit(e)}>
-        <h1>Create Your Profile</h1>
-        <br />
-        <div>
-          <input
-            className='text-input'
-            type='text'
-            placeholder='Website'
-            name='website'
-            value={website}
-            onChange={(e) => onChange(e)}
-          />
-          <br />
-          <small>* Could be your own or a company website</small>
-        </div>
-        <div>
-          <input
-            className='text-input'
-            type='text'
-            placeholder='Status'
-            name='status'
-            value={status}
-            onChange={(e) => onChange(e)}
-          />
-          <br />
-          <small>* Give us an idea where you are at your career</small>
-        </div>
-        <div>
-          <input
-            className='text-input'
-            type='text'
-            placeholder='Skills'
-            name='skills'
-            value={skills}
-            onChange={(e) => onChange(e)}
-          />
-          <br />
-          <small>* Please use comma seperated values</small>
-        </div>
-        <div>
-          <button
-            className='button'
-            onClick={() => toggleSocilaInputs(!displaySocialInputs)}
-            type='button'
-          >
-            Add social network links
-          </button>
-        </div>
+      <div className='row justify-content-md-center '>
+        <div className='col-3'></div>
+        <div className='form-container'>
+          <div className='col-sm'>
+            <div className='item shadow'>
+              <form className='form' onSubmit={(e) => onSubmit(e)}>
+                <div className='form__header'>
+                  <h1>Edit Profile</h1>
+                </div>
 
-        {displaySocialInputs && (
-          <Fragment>
-            <div>
-              <input
-                className='text-input'
-                type='text'
-                placeholder='YouTube URL'
-                name='youtube'
-                value={youtube}
-                onChange={(e) => onChange(e)}
-              />
-              <br />
-              <small>* Your YouTube Cannel</small>
-            </div>
-            <div>
-              <input
-                className='text-input'
-                type='text'
-                placeholder='Facebook URL'
-                name='facebook'
-                value={facebook}
-                onChange={(e) => onChange(e)}
-              />
-              <br />
-              <small>* Your facebook page</small>
-            </div>
-            <div>
-              <input
-                className='text-input'
-                type='text'
-                placeholder='Linkedin URL'
-                name='linkedin'
-                value={linkedin}
-                onChange={(e) => onChange(e)}
-              />
-              <br />
-              <small>* Your linkedin page</small>
-            </div>
-            <div>
-              <input
-                className='text-input'
-                type='text'
-                placeholder='Instagram URL'
-                name='instagram'
-                value={instagram}
-                onChange={(e) => onChange(e)}
-              />
-              <br />
-              <small>* Your instagram page</small>
-            </div>
-          </Fragment>
-        )}
+                <div className='inputs-container'>
+                  <div className='text-input__item--profile'>
+                    <input
+                      className='text-input'
+                      type='text'
+                      placeholder='Website'
+                      name='website'
+                      value={website}
+                      onChange={(e) => onChange(e)}
+                    />
+                    <small>* Could be your own or a company website</small>
+                  </div>
+                  <div className='text-input__item--profile'>
+                    <input
+                      className='text-input'
+                      type='text'
+                      placeholder='Status'
+                      name='status'
+                      value={status}
+                      onChange={(e) => onChange(e)}
+                    />
 
-        <div className='item-conteiner'>
-          <div className='right-link '>
-            <input className='button link' type='submit' />
-          </div>
-          <div className='left-link down '>
-            <Link className='button link' to='/dashboard'>
-              Back
-            </Link>
+                    <small>
+                      * Give us an idea where you are at your career
+                    </small>
+                  </div>
+                  <div className='text-input__item--profile'>
+                    <input
+                      className='text-input'
+                      type='text'
+                      placeholder='Skills'
+                      name='skills'
+                      value={skills}
+                      onChange={(e) => onChange(e)}
+                    />
+                    <small style={{ color: 'red' }}>
+                      * Please use comma seperated values
+                    </small>
+                  </div>
+
+                  <div className='text-input__item--profile'>
+                    <button
+                      className='btn btn--submit '
+                      onClick={() => toggleSocilaInputs(!displaySocialInputs)}
+                      type='button'
+                    >
+                      Add social network links
+                    </button>
+                  </div>
+
+                  {displaySocialInputs && (
+                    <Fragment>
+                      <div className='text-input__item--profile'>
+                        <input
+                          className='text-input'
+                          type='text'
+                          placeholder='YouTube URL'
+                          name='youtube'
+                          value={youtube}
+                          onChange={(e) => onChange(e)}
+                        />
+                        <small>* Your YouTube Channel</small>
+                      </div>
+                      <div className='text-input__item--profile'>
+                        <input
+                          className='text-input'
+                          type='text'
+                          placeholder='Facebook URL'
+                          name='facebook'
+                          value={facebook}
+                          onChange={(e) => onChange(e)}
+                        />
+                        <small>* Your facebook page</small>
+                      </div>
+                      <div className='text-input__item--profile'>
+                        <input
+                          className='text-input'
+                          type='text'
+                          placeholder='Linkedin URL'
+                          name='linkedin'
+                          value={linkedin}
+                          onChange={(e) => onChange(e)}
+                        />
+
+                        <small>* Your linkedin page</small>
+                      </div>
+                      <div className='text-input__item--profile'>
+                        <input
+                          className='text-input'
+                          type='text'
+                          placeholder='Instagram URL'
+                          name='instagram'
+                          value={instagram}
+                          onChange={(e) => onChange(e)}
+                        />
+
+                        <small>* Your instagram page</small>
+                      </div>
+                    </Fragment>
+                  )}
+                </div>
+                <div className='item-conteiner'>
+                  <div className='right-link '>
+                    <input className='button link' type='submit' />
+                  </div>
+                  <div className='left-link down '>
+                    <Link className='button link' to='/dashboard'>
+                      Back
+                    </Link>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </form>
+        <div className='col-3'></div>
+      </div>
     </Fragment>
   );
 };
