@@ -31,3 +31,11 @@ button {
     color: $off-white;
   }
 }
+
+.btn-profile {
+  font-size: $m-size;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

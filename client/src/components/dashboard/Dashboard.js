@@ -20,26 +20,48 @@ const Dashboard = ({
     <Loading />
   ) : (
     <Fragment>
-      <div className='content-container'>
-        <h2>Welcome {user && user.name}</h2>
+      <div class='row justify-content-md-center mt-5'>
+        <div class='col-3 profile '>
+          <h2 className='profile__header'>{user && user.name}</h2>
+          <div className='profile__img'>
+            <div className='media'>
+              <img
+                src='/unknown-user.png'
+                alt='unknown user'
+                className='mr-3  rounded-circle '
+                style={{ width: '100px', margin: '0px 0px' }}
+              />
+            </div>
+          </div>
 
-        {profile !== null ? (
-          <Fragment>
-            <DashboardActions />
-            <br />
-            <br />
-            <button className='button' onClick={() => deleteAccount()}>
-              Delete Account
-            </button>
-          </Fragment>
-        ) : (
-          <Fragment>
-            <p>You have not setup a profile yet, please add some info </p>
-            <Link className='button-link' to='/create-profile'>
-              Create Profile
-            </Link>
-          </Fragment>
-        )}
+          {profile !== null ? (
+            <Fragment>
+              <div className='profile__body'>
+                <ul>
+                  <li class='list-group-item'>
+                    <DashboardActions />
+                  </li>
+                  <li class='list-group-item'>
+                    <button
+                      className='btn btn-profile'
+                      onClick={() => deleteAccount()}
+                    >
+                      Delete Account
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </Fragment>
+          ) : (
+            <Fragment>
+              <p>You have not setup a profile yet, please add some info </p>
+              <Link className='button-link' to='/create-profile'>
+                Create Profile
+              </Link>
+            </Fragment>
+          )}
+        </div>
+        <div class='col-8'></div>
       </div>
     </Fragment>
   );

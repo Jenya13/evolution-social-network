@@ -166,15 +166,26 @@ const EditProfile = ({
                       </div>
                     </Fragment>
                   )}
-                </div>
-                <div className='item-conteiner'>
-                  <div className='right-link '>
-                    <input className='button link' type='submit' />
-                  </div>
-                  <div className='left-link down '>
-                    <Link className='button link' to='/dashboard'>
-                      Back
-                    </Link>
+                  <div className='form__footer form__footer--btn'>
+                    <div className='d-flex flex-row-reverse justify-content-between'>
+                      <div className='post-buttons-wrapper'>
+                        <div>
+                          <input
+                            className='btn btn--submit btn--posts'
+                            type='submit'
+                            value='Edit'
+                          />
+                        </div>
+                        <div>
+                          <Link
+                            className='btn btn--submit btn--posts'
+                            to='/dashboard'
+                          >
+                            Back
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </form>

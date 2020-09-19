@@ -5,6 +5,11 @@ const SubBar = () => {
   return (
     <ul className='sub-bar sub-links-group justify-content-center'>
       <li className='nav-item'>
+        <Link className='nav-link' to='/register'>
+          My Profile
+        </Link>
+      </li>
+      <li className='nav-item'>
         <Link className='nav-link active' to='/posts'>
           Posts
         </Link>
@@ -12,11 +17,6 @@ const SubBar = () => {
       <li className='nav-item'>
         <Link className='nav-link' to='/profiles'>
           Profiles
-        </Link>
-      </li>
-      <li className='nav-item'>
-        <Link className='nav-link' to='/register'>
-          Dashboard
         </Link>
       </li>
     </ul>

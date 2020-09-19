@@ -30,18 +30,9 @@
   }
 }
 
-// .form {
-//   display: flex;
-//   flex-direction: column;
-//   max-width: 40rem;
-//   border: 1px #cacccd;
-//   margin: 25px auto;
-//   padding: 25px 25px 25px 25px;
-//   background-color: $turquoise-light;
-//   > * {
-//     margin-bottom: $s-size;
-//   }
-// }
+.form__footer--btn {
+  padding: 0px 0px;
+}
 
 .form-header {
   margin: $s-size $l-size;
