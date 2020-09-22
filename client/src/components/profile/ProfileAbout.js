@@ -9,10 +9,14 @@ const ProfileAbout = ({
   },
 }) => {
   return (
-    <div className='container'>
+    <div>
       {skills && (
         <Fragment>
-          <h2>{name.trim().split(' ')[0]}'s Skils:</h2>
+          <br />
+          <h2>
+            {' '}
+            <b> {name.trim().split(' ')[0]}'s Skils:</b>
+          </h2>
           <ul>
             {skills.map((skill, index) => (
               <li key={index}>{skill}</li>

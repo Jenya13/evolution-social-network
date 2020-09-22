@@ -23,28 +23,47 @@ const Profile = ({
         <Loading />
       ) : (
         <Fragment>
-          <div className='content-container'>
-            <div className='list-item'>
-              <div className='item-conteiner'>
-                <ProfileTop profile={profile} />
-                <ProfileAbout profile={profile} />
+          <div className='row justify-content-md-center '>
+            <div className='col-3'></div>
 
-                {auth.isAuthenticated &&
-                  auth.loading === false &&
-                  auth.user._id === profile.user._id && (
-                    <div className='left-link'>
-                      <Link className='button link' to='/edit-profile'>
-                        Edit profile
-                      </Link>
+            <div className='col-sm'>
+              <div className='item shadow'>
+                <div className='item-conteiner'>
+                  <div className='item-body '>
+                    <ProfileTop profile={profile} />
+                    <ProfileAbout profile={profile} />
+                    <div className='form__footer form__footer--btn'>
+                      <div className='d-flex flex-row-reverse justify-content-between'>
+                        <div className='post-buttons-wrapper'>
+                          {auth.isAuthenticated &&
+                            auth.loading === false &&
+                            auth.user._id === profile.user._id && (
+                              <div className='left-link'>
+                                <Link
+                                  className='btn btn--submit btn--posts'
+                                  to='/edit-profile'
+                                >
+                                  Edit profile
+                                </Link>
+                              </div>
+                            )}
+                          <div className='right-link'>
+                            <Link
+                              className='btn btn--submit btn--posts'
+                              to='/profiles'
+                            >
+                              Back to profiles
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  )}
-                <div className='right-link'>
-                  <Link className='button link' to='/profiles'>
-                    Back to profiles
-                  </Link>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <div className='col-3'></div>
           </div>
         </Fragment>
       )}

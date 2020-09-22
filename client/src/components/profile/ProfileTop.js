@@ -11,15 +11,25 @@ const ProfileTop = ({
 }) => {
   return (
     <Fragment>
-      <div className='list-item-header'>
-        <h3>img</h3>
-        <h2>{name}</h2>
+      <div className='item-header'>
+        <div className='media'>
+          <img
+            src='/unknown-user.png'
+            alt='unknown user'
+            className='mr-3  rounded-circle'
+            style={{ width: '30px', margin: '0px 0px' }}
+          />
+          <div className='media-body '>
+            <h4>{name}</h4>
+          </div>
+        </div>
       </div>
+      <hr />
 
-      <p>
+      <h2>
         {' '}
         <b> {status}</b>
-      </p>
+      </h2>
       <div className='links-container'>
         {website && (
           <div className='container'>

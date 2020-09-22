@@ -20,25 +20,23 @@ const Dashboard = ({
     <Loading />
   ) : (
     <Fragment>
-      <div class='row justify-content-md-center mt-5'>
-        <div class='col-3 profile '>
+      <div className='row justify-content-md-center mt-5'>
+        <div className='col-3 profile '>
           <h2 className='profile__header'>{user && user.name}</h2>
           <div className='profile__img'>
-            <div className='media'>
-              <img
-                src='/unknown-user.png'
-                alt='unknown user'
-                className='mr-3  rounded-circle '
-                style={{ width: '100px', margin: '0px 0px' }}
-              />
-            </div>
+            <img
+              src='/unknown-user.png'
+              alt='unknown user'
+              className='mr-3  rounded-circle '
+              style={{ width: '100px', margin: '0px 0px' }}
+            />
           </div>
 
           {profile !== null ? (
             <Fragment>
               <div className='profile__body'>
                 <ul>
-                  <li class='list-group-item'>
+                  <li className='list-group-item'>
                     <DashboardActions />
                   </li>
                   <li class='list-group-item'>
@@ -61,7 +59,7 @@ const Dashboard = ({
             </Fragment>
           )}
         </div>
-        <div class='col-8'></div>
+        <div className='col-8'></div>
       </div>
     </Fragment>
   );
