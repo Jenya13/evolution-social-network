@@ -1,5 +1,6 @@
 import React, { useState, Fragment, useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+// import { Link, withRouter } from 'react-router-dom';
+import Loading from './../layout/Loading';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { updateProfile, getCurrentProfile } from './../../actions/profile';
@@ -8,7 +9,7 @@ const EditProfile = ({
   profile: { profile, loading },
   updateProfile,
   getCurrentProfile,
-  history,
+  // history,
 }) => {
   const [formData, setFormData] = useState({
     website: '',
@@ -51,10 +52,12 @@ const EditProfile = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    updateProfile(formData, history);
+    updateProfile(formData);
   };
 
-  return (
+  return loading && profile === null ? (
+    <Loading />
+  ) : (
     <Fragment>
       <div className='row justify-content-md-center '>
         <div className='col-3'></div>
@@ -176,14 +179,6 @@ const EditProfile = ({
                             value='Edit'
                           />
                         </div>
-                        <div>
-                          <Link
-                            className='btn btn--submit btn--posts'
-                            to='/dashboard'
-                          >
-                            Back
-                          </Link>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -209,5 +204,5 @@ const mapstateToProps = (state) => ({
 });
 
 export default connect(mapstateToProps, { updateProfile, getCurrentProfile })(
-  withRouter(EditProfile)
-);
+  EditProfile
+); //withRouter(EditProfile)

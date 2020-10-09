@@ -98,20 +98,22 @@
   &__header {
     font-size: $l-size;
     text-align: center;
-    margin-bottom: $l-size;
+    margin-bottom: $m-size;
   }
 
   &__img {
-    margin-bottom: $l-size;
+    text-align: center;
+    margin-bottom: $m-size;
     padding: 0px 110px;
   }
 
   &__body {
-    align-content: center;
+    align-content: left;
     padding: 0px 50px;
     ul {
       @extend .list-group;
       @extend .list-group-flush;
+
       padding: 0px;
       li {
         background-color: $white;

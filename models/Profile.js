@@ -4,37 +4,40 @@ const validator = require('validator');
 const ProfileSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'user'
+    ref: 'user',
   },
   website: {
-    type: String
+    type: String,
   },
   status: {
     type: String,
-    required: true
+    required: true,
   },
   skills: {
     type: [String],
-    required: true
+    required: true,
   },
   social: {
     youtube: {
-      type: String
+      type: String,
     },
     facebook: {
-      type: String
+      type: String,
     },
     linkedin: {
-      type: String
+      type: String,
     },
     instagram: {
-      type: String
-    }
+      type: String,
+    },
+  },
+  avatar: {
+    type: Buffer,
   },
   date: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 const Profile = mongoose.model('profile', ProfileSchema);

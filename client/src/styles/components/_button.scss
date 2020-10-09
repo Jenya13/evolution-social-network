@@ -39,3 +39,13 @@ button {
     text-decoration: underline;
   }
 }
+
+.btn--upload {
+  @extend .btn-secondary;
+  background-color: $blue;
+  color: $off-white;
+  &:hover {
+    background-color: lighten($blue, 5%);
+    color: $off-white;
+  }
+}

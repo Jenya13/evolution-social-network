@@ -13,3 +13,15 @@
 .inputs-container {
   padding: 0 60px;
 }
+
+.dashboard-container {
+  @extend .container-md;
+  margin: $l-size $l-size 0px $l-size;
+
+  width: 92.5%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

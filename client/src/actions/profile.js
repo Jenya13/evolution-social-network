@@ -11,7 +11,7 @@ import {
 // get all profiles
 export const getProfiles = () => async (dispatch) => {
   dispatch({ type: CLEAR_PROFILE });
-  console.log('all profiles');
+
   try {
     const res = await axios.get('api/profile/');
 
@@ -94,8 +94,37 @@ export const createProfile = (formData, history) => async (dispatch) => {
   }
 };
 
+// set image to profile
+export const updateProfileImage = (formData) => async (dispatch) => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    };
+    const res = await axios.post('api/profile/upload-image', formData, config);
+
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data.profile,
+    });
+  } catch (e) {
+    const error = e.response.data.message;
+    console.log(e.response.data.message);
+
+    if (error) {
+      dispatch(setAlert(error, 'danger'));
+    }
+
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: e.response.data.message, status: e.response.data.status },
+    });
+  }
+};
+
 // update profile
-export const updateProfile = (formData, history) => async (dispatch) => {
+export const updateProfile = (formData) => async (dispatch) => {
   try {
     const config = {
       headers: {
@@ -111,8 +140,6 @@ export const updateProfile = (formData, history) => async (dispatch) => {
     });
 
     dispatch(setAlert('Profile Updated'));
-
-    history.push('/dashboard');
   } catch (e) {
     const error = e.response.data;
     console.log(e.response);

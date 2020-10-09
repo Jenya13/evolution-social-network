@@ -9,3 +9,11 @@
     margin-bottom: $m-size;
   }
 }
+
+.file-upload-inputs {
+  @extend .custom-file;
+  padding: 0px 0px;
+  width: $xxl-size;
+  border-radius: 10px;
+  background-color: green;
+}

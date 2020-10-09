@@ -2,6 +2,36 @@ const Profile = require('./../models/Profile');
 const User = require('./../models/User');
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
+const multer = require('multer');
+const sharp = require('sharp');
+
+const upload = multer({
+  limits: {
+    fileSize: 20000000,
+  },
+  fileFilter(req, file, cb) {
+    if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
+      return cb(new AppError('inncorect file formate', 400));
+    }
+    cb(undefined, true);
+  },
+});
+
+exports.uploudUserAvatar = upload.single('avatar');
+
+exports.resizeUserAvatar = async (req, res, next) => {
+  if (!req.file) return next();
+
+  req.file.buffer = await sharp(req.file.buffer)
+    .resize(300, 300)
+    .toFormat('jpeg')
+    .jpeg({
+      quality: 90,
+    })
+    .toBuffer();
+
+  next();
+};
 
 const updateFields = (req) => {
   const {
@@ -60,11 +90,25 @@ exports.createProfile = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.updateProfileImage = catchAsync(async (req, res, next) => {
+  const profile = await Profile.findOne({
+    user: req.user.id,
+  }).populate('user', ['name']);
+  if (!profile) {
+    return next(new AppError('There is no profile for this user', 400));
+  }
+
+  profile.avatar = req.file.buffer;
+  await profile.save();
+
+  res.status(200).json({
+    status: 'success',
+    profile,
+  });
+});
+
 exports.updateProfile = catchAsync(async (req, res, next) => {
-  console.log('updating -> req.body');
-  console.log('befor fields setting');
   const profileFields = updateFields(req);
-  console.log('after fields setting');
 
   const profile = await Profile.findOneAndUpdate(
     { user: req.user.id },
@@ -74,9 +118,7 @@ exports.updateProfile = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: 'success',
-    data: {
-      profile,
-    },
+    profile,
   });
 });
 
